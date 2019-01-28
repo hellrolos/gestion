@@ -12,8 +12,8 @@
 				    <span>Asignaturas</span>
 			    </a>
 				<ul class="sub-menu">
-				    <li><a href="{{ route('alumnoasignatura') }}">Semestre Actual</a></li>
-				    <li><a href="{{ route('alumnohistorico') }}">Histórico</a></li>
+				    <li><a href="index.html">Semestre Actual</a></li>
+				    <li><a href="index_v2.html">Histórico</a></li>
 				</ul>
 			</li>
 			<li class="has-sub">
@@ -23,18 +23,18 @@
 					<span>Mensajes</span>
 				</a>
 				<ul class="sub-menu">
-				    <li><a href="{{ route('alumnorecibidos') }}">Recibidos</a></li>
-				    <li><a href="{{ route('alumnoenviados') }}">Enviados</a></li>
+				    <li><a href="email_inbox.html">Recibidos</a></li>
+				    <li><a href="email_compose.html">Enviados</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="{{ route('alumnocalendario') }}">
+				<a href="calendar.html">
 				<i class="fa fa-calendar"></i>
 				<span>Calendario</span>
 				</a>
 			</li>
 			<li>
-				<a href="{{ route('login') }}">
+				<a href="bootstrap_4.html">
 			       	<i class="fa fa-key"></i>
 				    <span>Cerrar Sesión</span>
 				</a>

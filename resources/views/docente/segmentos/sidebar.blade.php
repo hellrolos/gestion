@@ -12,8 +12,8 @@
 				    <span>Asignaturas</span>
 			    </a>
 				<ul class="sub-menu">
-				    <li><a href="{{ route('alumnoasignatura') }}">Semestre Actual</a></li>
-				    <li><a href="{{ route('alumnohistorico') }}">Histórico</a></li>
+				    <li><a href="{{ route('docenteasignatura') }}">Semestre Actual</a></li>
+				    <li><a href="{{ route('docentehistorico') }}">Histórico</a></li>
 				</ul>
 			</li>
 			<li class="has-sub">
@@ -23,12 +23,12 @@
 					<span>Mensajes</span>
 				</a>
 				<ul class="sub-menu">
-				    <li><a href="{{ route('alumnorecibidos') }}">Recibidos</a></li>
-				    <li><a href="{{ route('alumnoenviados') }}">Enviados</a></li>
+				    <li><a href="{{ route('docenterecibidos') }}">Recibidos</a></li>
+				    <li><a href="{{ route('docenteenviados') }}">Enviados</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="{{ route('alumnocalendario') }}">
+				<a href="{{ route('docentecalendario') }}">
 				<i class="fa fa-calendar"></i>
 				<span>Calendario</span>
 				</a>
