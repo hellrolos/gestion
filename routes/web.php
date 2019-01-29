@@ -1,7 +1,13 @@
 <?php
+
 // Realizar el listado de las rutas para todas las paginas.
+
+Route::get('ws', 'WebServiceController@index');
+
+ Route::get('/ws/{id}', 'WebServiceController@show');
+
 Route::get('/', function () {
-    return view('login');
+	return view('login');
 })->name('login');
 
 Route::get('/alumno', function () {
