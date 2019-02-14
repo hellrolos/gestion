@@ -34,7 +34,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="{{ route('login') }}">
+				<a href="{{ route('inicio') }}">
 			       	<i class="fa fa-key"></i>
 				    <span>Cerrar Sesión</span>
 				</a>

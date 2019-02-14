@@ -1,98 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            {{-- @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>Acceso | Gestión de Curso</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href={{ asset('template/plugins/jquery-ui/jquery-ui.min.css') }} rel="stylesheet" />
+    <link href={{ asset('template/plugins/bootstrap/4.0.0/css/bootstrap.min.css') }} rel="stylesheet" />
+    <link href={{ asset('template/plugins/font-awesome/5.0/css/fontawesome-all.min.css') }} rel="stylesheet" />
+    <link href={{ asset('template/plugins/animate/animate.min.css') }} rel="stylesheet" />
+    <link href={{ asset('template/css/default/style.min.css') }} rel="stylesheet" />
+    <link href={{ asset('template/css/default/style-responsive.min.css') }} rel="stylesheet" />
+    <link href={{ asset('template/css/default/theme/default.css" rel="stylesheet') }} id="theme" />
+    <script src={{ asset('template/plugins/pace/pace.min.js') }}></script>
+</head>
+<body class="pace-top">
+    <!-- begin #page-loader -->
+    <div id="page-loader" class="fade show"><span class="spinner"></span></div>
+    <!-- end #page-loader -->
+    <div class="login-cover">
+        <div class="login-cover-image" style="background-image: url(template/img/login-bg/login-bg-12.jpg)" data-id="login-cover-image"></div>
+        <div class="login-cover-bg"></div>
+    </div>
+     <hr>
+        @if(session()->has('flash'))
+            <div class="alert alert-info">{{ session('flash')}}</div>
+        @endif
+    <div id="page-container" class="fade">
+        <!-- begin login -->
+        <div class="login login-v2" data-pageload-addclass="animated fadeIn">
+            <!-- begin brand -->
+            <div class="login-header">
+                <div class="brand">
+                    <span class="logo"></span> <b>TecNM</b> ITTepic
+                    <small>Gestión de Curso</small>
                 </div>
-            @endif --}}
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="icon">
+                    <i class="fa fa-lock"></i>
                 </div>
             </div>
+            <!-- end brand -->
+            <!-- begin login-content -->
+            <div class="login-content">
+                <form action="{{ route('login')}}" method="POST" class="margin-bottom-0">
+                    {{ csrf_field() }}
+                    <div class="form-group m-b-20">
+                        <input type="text" name="username"  value="{{ old('username')}}" class="form-control form-control-lg" placeholder="Usuario"/>
+                        {!! $errors->first('username', '<span class="hljs-string" style="color:white;">¡:message!</span>') !!}
+                    </div>
+                    <div class="form-group m-b-20">
+                        <input type="password" name="password" class="form-control form-control-lg" placeholder="Contraseña"/>
+                        {!! $errors->first('password', '<span class="hljs-string" style="color:white;">¡:message!</span>') !!}
+                    </div>
+                    <div class="login-buttons">
+                        <button type="submit" class="btn btn-success btn-block btn-lg">Acceder al sitio</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end login-content -->
         </div>
-    </body>
+        <!-- end login -->
+    </div>
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src={{ asset('template/plugins/jquery/jquery-3.2.1.min.js') }}></script>
+    <script src={{ asset('template/plugins/jquery-ui/jquery-ui.min.js') }}></script>
+    <script src={{ asset('template/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js') }}></script>
+    <script src={{ asset('template/plugins/slimscroll/jquery.slimscroll.min.js') }}></script>
+    <script src={{ asset('template/plugins/js-cookie/js.cookie.js') }}></script>
+    <script src={{ asset('template/js/theme/default.min.js') }}></script>
+    <script src={{ asset('template/js/apps.min.js') }}></script>
+    <!-- ================== END BASE JS ================== -->
+    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <script src={{ asset('template/js/demo/login-v2.demo.min.js') }}></script>
+    <!-- ================== END PAGE LEVEL JS ================== -->
+    <script>
+        $(document).ready(function() {
+            App.init();
+            LoginV2.init();
+        });
+    </script>
+</body>
 </html>

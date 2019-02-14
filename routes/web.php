@@ -2,17 +2,27 @@
 
 // Realizar el listado de las rutas para todas las paginas.
 
+Route::get('/', 'Auth\LoginController@showLogin')->name('inicio');
+
+Route::post('login', 'Auth\LoginController@login')->name('login');
+
+Route::get('logout','Auth\LoginController@logout')->name('logout');
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+Route::get('/alumno', 'AlumnoController@index')->name('alumno');
+
+
+
+
+
+///// Rutas de prueba Abajo, se tienen que cambiar por controladores para cada sesión.
+
+
 Route::get('ws', 'WebServiceController@index');
 
- Route::get('/ws/{id}', 'WebServiceController@show');
+Route::get('/ws/{id}', 'WebServiceController@show');
 
-Route::get('/', function () {
-	return view('login');
-})->name('login');
-
-Route::get('/alumno', function () {
-    return view('alumno.inicio');
-})->name('alumno');
 
 Route::get('/alumno/asignatura', function () {
     return view('alumno.alumnoasignatura');

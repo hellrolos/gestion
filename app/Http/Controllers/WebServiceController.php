@@ -15,7 +15,7 @@ class WebServiceController extends Controller
 	    	// You can set any number of default request options.
 	    	'timeout'  => 2.0,
 		]);
-		$response = $client->request('GET', 'posts');
+		$response = $client->request('GET', 'posts/');
 		$posts = json_decode( $response->getBody()->getContents() );
 	    return view('posts.index', compact('posts'));
     }

@@ -9,7 +9,7 @@
 			<a href="{{ route('docenterecibidos') }}" class="dropdown-item"><span class="badge badge-danger pull-right">2</span> Mensajes</a>
 			<a href="{{ route('docentecalendario') }}" class="dropdown-item">Calendario</a>
 			<div class="dropdown-divider"></div>
-			<a href="{{ route('login') }}" class="dropdown-item">Cerrar Sesión</a>
+			<a href="{{ route('inicio') }}" class="dropdown-item">Cerrar Sesión</a>
 		</div>
 	</li>
 </ul>
