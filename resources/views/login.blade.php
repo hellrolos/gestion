@@ -14,6 +14,7 @@
     <link href={{ asset('template/css/default/style.min.css') }} rel="stylesheet" />
     <link href={{ asset('template/css/default/style-responsive.min.css') }} rel="stylesheet" />
     <link href={{ asset('template/css/default/theme/default.css" rel="stylesheet') }} id="theme" />
+    <link rel="stylesheet" href={{ asset('css/toastr.min.css')}}>
     <script src={{ asset('template/plugins/pace/pace.min.js') }}></script>
 </head>
 <body class="pace-top">
@@ -25,9 +26,6 @@
         <div class="login-cover-bg"></div>
     </div>
      <hr>
-        @if(session()->has('flash'))
-            <div class="alert alert-info">{{ session('flash')}}</div>
-        @endif
     <div id="page-container" class="fade">
         <!-- begin login -->
         <div class="login login-v2" data-pageload-addclass="animated fadeIn">
@@ -74,6 +72,7 @@
     <!-- ================== END BASE JS ================== -->
     <!-- ================== BEGIN PAGE LEVEL JS ================== -->
     <script src={{ asset('template/js/demo/login-v2.demo.min.js') }}></script>
+    <script src={{ asset('js/toastr.min.js')}}></script>
     <!-- ================== END PAGE LEVEL JS ================== -->
     <script>
         $(document).ready(function() {
@@ -81,5 +80,16 @@
             LoginV2.init();
         });
     </script>
+    @if(session()->has('flash'))
+        <script>toastr.error("{{ session('flash')}}", "¡Oops!", {timeOut:5000, progressBar:true, positionClass: 'toast-top-center'})</script>
+    @elseif(session()->has('success'))
+        <script>toastr.success("{{ session('success')}}", "¡Exitoso!", {timeOut:5000, progressBar:true, positionClass: 'toast-top-center'})</script>
+    @elseif(session()->has('info'))
+        <script>toastr.info("{{ session('info')}}", "¡Información!", {timeOut:5000, progressBar:true, positionClass: 'toast-top-center'})</script>
+    @elseif(session()->has('warning'))
+        <script>toastr.warning("{{ session('warning')}}", "¡Alerta!", {timeOut:5000, progressBar:true, positionClass: 'toast-top-center'})</script>
+    @elseif(session()->has('error'))
+        <script>toastr.error("{{ session('error')}}", "¡Error!", {timeOut:5000, progressBar:true, positionClass : 'toast-top-center'})</script>
+    @endif
 </body>
 </html>

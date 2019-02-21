@@ -15,6 +15,7 @@
 	<link href={{ asset('template/css/default/style.min.css') }} rel="stylesheet" />
 	<link href={{ asset('template/css/default/style-responsive.min.css') }} rel="stylesheet" />
 	<link href={{ asset('template/css/default/theme/default.css') }} rel="stylesheet" id="theme" />
+	<link rel="stylesheet" href={{ asset('css/toastr.min.css')}}>
 	<!-- ================== END BASE CSS STYLE ================== -->
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src={{ asset('template/plugins/pace/pace.min.js') }}></script>
@@ -31,6 +32,11 @@
 			<!-- begin navbar-header -->
 			<div class="navbar-header">
 				<a href="{{ route('admin') }}" class="navbar-brand"><span class="navbar-logo"></span> <b>Gestión de Curso - TNM/ITTepic</b></a>
+				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 			</div>
 			<!-- end navbar-header -->
 			{{-- Aqui se llama el segmento de la navegacion de la cabecera del template --}}
@@ -62,11 +68,13 @@
 	<script src={{ asset('template/plugins/js-cookie/js.cookie.js') }}></script>
 	<script src={{ asset('template/js/theme/default.min.js') }}></script>
 	<script src={{ asset('template/js/apps.min.js') }}></script>
+	 <script src={{ asset('js/toastr.min.js')}}></script>
 	<!-- ================== END BASE JS ================== -->
 	<script>
 		$(document).ready(function() {
 			App.init();
 		});
 	</script>
+	@include('admin.segmentos.session-messages')
 </body>
 </html>
