@@ -7,6 +7,6 @@
 </ol>
 <!-- end breadcrumb -->
 <!-- begin page-header -->
-<h1 class="page-header">Bienvenido Profesor: <small>Es un gusto tenerlo de vuelta aquí....</small></h1>
+<h1 class="page-header">Bienvenido Profesor: {{ auth()->user()->name}} <small>Es un gusto tenerlo de vuelta aquí.</small></h1>
 <!-- end page-header -->
 @endsection

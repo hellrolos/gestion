@@ -19,7 +19,22 @@ class RedirectIfAuthenticated
     {
         //Aquí se tiene que diseñar una función que permita distinguir el perfil y redireccionar al home que corresponda.
         if (Auth::guard($guard)->check()) {
-            return redirect('/admin');
+            $user = Auth::user();
+            if($user->type<>'ADM')
+            {
+               if($user->type<>'ALU')
+               {
+                 return redirect('/docente');
+               }
+               else
+               {
+                 return redirect('/alumno');
+               }
+            }
+            else
+            {
+                return redirect('/admin');
+            }
         }
 
         return $next($request);

@@ -1,4 +1,4 @@
-<!-- begin #sidebar -->
+begin #sidebar -->
 <div id="sidebar" class="sidebar">
 	<!-- begin sidebar scrollbar -->
 	<div data-scrollbar="true" data-height="100%">
@@ -33,8 +33,17 @@
 				<span>Calendario</span>
 				</a>
 			</li>
+			{{-- aqui colocar la condifición si es admin --}}
+			@if(auth()->user()->type=='ADM')
 			<li>
-				<a href="{{ route('inicio') }}">
+				<a href="{{ route('admin') }}">
+					<i class="fa fa-cogs"></i>
+					<span>Administración</span>
+				</a>
+			</li>
+			@endif
+			<li>
+				<a href="{{ route('logout') }}">
 			       	<i class="fa fa-key"></i>
 				    <span>Cerrar Sesión</span>
 				</a>
@@ -48,4 +57,4 @@
 	<!-- end sidebar scrollbar -->
 </div>
 <div class="sidebar-bg"></div>
-<!-- end #sidebar -->
+<!-- end #sidebar

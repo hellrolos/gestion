@@ -6,35 +6,47 @@
 		<ul class="nav">
 			<li class="nav-header"><span>Menú</span></li>
 			<li class="has-sub">
-				<a href="javascript:;">
-			        <b class="caret"></b>
+				<a href="{{ route('dashboard') }}">
 				    <i class="fa fa-th-large"></i>
-				    <span>Asignaturas</span>
+				    <span>Administración</span>
 			    </a>
+			</li>
+			<li class="has-sub">
+				<a href="javascript:;">
+					<b class="caret"></b>
+					<i class="fa fa-angle-double-down"></i>
+					<span>Migraciones</span>
+				</a>
 				<ul class="sub-menu">
-				    <li><a href="{{ route('alumnoasignatura') }}">Semestre Actual</a></li>
-				    <li><a href="{{ route('alumnohistorico') }}">Histórico</a></li>
+				    <li><a href="{{ route('migraciones') }}">Estatus migraciones</a></li>
+				    <li><a href="{{ route('periodos') }}">Periodos</a></li>
+				    <li><a href="{{ route('departamentos') }}">Departamentos</a></li>
+				    <li><a href="{{ route('organigrama') }}">Organigrama</a></li>
+				    <li><a href="{{ route('personal') }}">Personal</a></li>
+				    <li><a href="{{ route('carreras') }}">Carreras</a></li>
+				    <li><a href="{{ route('alumnos') }}">Alumnos</a></li>
+				    <li><a href="{{ route('reticulas') }}">Reticulas</a></li>
+				    <li><a href="{{ route('planes') }}">Planes</a></li>
+				    <li><a href="{{ route('asignaturas') }}">Asignaturas</a></li>
+				    <li><a href="{{ route('grupos') }}">Grupos</a></li>
+				    <li><a href="{{ route('cargashorarias') }}">Cargas Horarias</a></li>
 				</ul>
 			</li>
 			<li class="has-sub">
 				<a href="javascript:;">
 					<b class="caret"></b>
-					<i class="fa fa-envelope"></i>
-					<span>Mensajes</span>
+					<i class="fa fa-user-secret"></i>
+					<span>Sesiones</span>
 				</a>
 				<ul class="sub-menu">
-				    <li><a href="{{ route('alumnorecibidos') }}">Recibidos</a></li>
-				    <li><a href="{{ route('alumnoenviados') }}">Enviados</a></li>
+				    <li><a href="{{ route('docenteasignatura') }}">Docentes</a></li>
+				    <li><a href="{{ route('docenteaprobaciones') }}">Jefes</a></li>
+				    <li><a href="{{ route('docenteacademias') }}">Subdirección</a></li>
+				    <li><a href="{{ route('docenteestatus') }}">Dirección</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="{{ route('alumnocalendario') }}">
-				<i class="fa fa-calendar"></i>
-				<span>Calendario</span>
-				</a>
-			</li>
-			<li>
-				<a href="{{ route('inicio') }}">
+				<a href="{{ route('logout') }}">
 			       	<i class="fa fa-key"></i>
 				    <span>Cerrar Sesión</span>
 				</a>

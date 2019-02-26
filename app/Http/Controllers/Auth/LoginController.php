@@ -19,7 +19,22 @@ class LoginController extends Controller
     ]);
     if(Auth::attempt($credentials))
     {
-        return redirect()->route('admin');
+        $user = Auth::user();
+        if($user->type <> 'ADM')
+        {
+            if($user->type <> 'ALU')
+            {
+                return redirect()->route('docente');
+            }
+            else
+            {
+                return redirect()->route('alumno');
+            }
+        }
+        else
+        {
+            return redirect()->route('admin');
+        }
     }
     return back()->withErrors(['username' => trans('auth.failed')])
             ->withInput(request(['username']));
