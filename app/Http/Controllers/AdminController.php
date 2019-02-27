@@ -3,13 +3,19 @@
 namespace gestion\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
 	public function __construct(){
         //Primero, si no tiene sesión arroja la excepción y lo manda al login
 		$this->middleware('auth');
-        //despues debemos validar solo admins para el acceso a este controlador
+        $this->middleware('adm');
+        // $user = Auth::user();
+        // if($user->type<>'ADM')
+        // {
+        //     return redirect()->route('inicio');
+        // }
 	}
     public function index(){
     	return view('admin.inicio');

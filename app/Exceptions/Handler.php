@@ -4,6 +4,7 @@ namespace gestion\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -46,8 +47,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //Se captura la exception de no encontrar una sesión y se redirecciona al login de la aplicación
         if($exception instanceof \Illuminate\Auth\AuthenticationException){
             return redirect('/')->with('info', 'Por favor, primero debes iniciar sesión');
+        }
+        if($exception instanceof MethodNotAllowedHttpException){
+            return back()->with('error', 'Metodo de acceso no permitido');
         }
         return parent::render($request, $exception);
     }

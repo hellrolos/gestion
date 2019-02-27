@@ -1,4 +1,3 @@
-<!-- begin header-nav -->
 <ul class="navbar-nav navbar-right">
 	<li class="dropdown navbar-user">
 		<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
@@ -13,4 +12,3 @@
 		</div>
 	</li>
 </ul>
-<!-- end header navigation right -->

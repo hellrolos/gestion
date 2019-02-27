@@ -17,6 +17,7 @@ class LoginController extends Controller
         'username' => 'required|string',
         'password' => 'required|string'
     ]);
+    //Aquí va la logica de uso de los webservices, primero buscar si el usuario es ADM, en caso contrario hacer el llamado de los webservices dependiendo que tipo de caracteres introdujo.
     if(Auth::attempt($credentials))
     {
         $user = Auth::user();
@@ -24,16 +25,16 @@ class LoginController extends Controller
         {
             if($user->type <> 'ALU')
             {
-                return redirect()->route('docente');
+                return redirect()->route('docente')->with('success', 'Bienvenido Profesor');
             }
             else
             {
-                return redirect()->route('alumno');
+                return redirect()->route('alumno')->with('success', 'Bienvenido');
             }
         }
         else
         {
-            return redirect()->route('admin');
+            return redirect()->route('admin')->with('success', 'Bienvenido Administrador');
         }
     }
     return back()->withErrors(['username' => trans('auth.failed')])

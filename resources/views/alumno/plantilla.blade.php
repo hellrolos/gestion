@@ -16,8 +16,6 @@
 	<link href={{ asset('template/css/default/style-responsive.min.css') }} rel="stylesheet" />
 	<link href={{ asset('template/css/default/theme/default.css') }} rel="stylesheet" id="theme" />
 	<link rel="stylesheet" href={{ asset('css/toastr.min.css')}}>
-	<!-- ================== END BASE CSS STYLE ================== -->
-	<!-- ================== BEGIN BASE JS ================== -->
 	<script src={{ asset('template/plugins/pace/pace.min.js') }}></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
@@ -59,11 +57,6 @@
 	<script src={{ asset('template/plugins/jquery/jquery-3.2.1.min.js') }}></script>
 	<script src={{ asset('template/plugins/jquery-ui/jquery-ui.min.js') }}></script>
 	<script src={{ asset('template/plugins/bootstrap/4.0.0/js/bootstrap.bundle.min.js') }}></script>
-	<!--[if lt IE 9]>
-		<script src="crossbrowserjs/html5shiv.js') }}></script>
-		<script src="crossbrowserjs/respond.min.js') }}></script>
-		<script src="crossbrowserjs/excanvas.min.js') }}></script>
-	<![endif]-->
 	<script src={{ asset('template/plugins/slimscroll/jquery.slimscroll.min.js') }}></script>
 	<script src={{ asset('template/plugins/js-cookie/js.cookie.js') }}></script>
 	<script src={{ asset('template/js/theme/default.min.js') }}></script>

@@ -10,6 +10,7 @@ class AlumnoController extends Controller
     public function __construct(){
         //Primero, si no tiene sesión arroja la excepción y lo manda al login
         $this->middleware('auth');
+        $this->middleware('alu');
         //despues debemos validar solo admins para el acceso a este controlador
     }
     public function index(){

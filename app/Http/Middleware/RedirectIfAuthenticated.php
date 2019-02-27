@@ -17,7 +17,7 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        //Aquí se tiene que diseñar una función que permita distinguir el perfil y redireccionar al home que corresponda.
+        //Se valida que exista una sesión activa y busca el tipo de usuario que es para enviarlo a su pagina de inicio.
         if (Auth::guard($guard)->check()) {
             $user = Auth::user();
             if($user->type<>'ADM')
@@ -36,7 +36,6 @@ class RedirectIfAuthenticated
                 return redirect('/admin');
             }
         }
-
         return $next($request);
     }
 }
