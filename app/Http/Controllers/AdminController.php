@@ -4,18 +4,16 @@ namespace gestion\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use gestion\WS\SII;
 
 class AdminController extends Controller
 {
-	public function __construct(){
+    protected $SIIws;
+	public function __construct(SII $SII){
         //Primero, si no tiene sesión arroja la excepción y lo manda al login
 		$this->middleware('auth');
         $this->middleware('adm');
-        // $user = Auth::user();
-        // if($user->type<>'ADM')
-        // {
-        //     return redirect()->route('inicio');
-        // }
+        $this->SIIws = $SII;
 	}
     public function index(){
     	return view('admin.inicio');

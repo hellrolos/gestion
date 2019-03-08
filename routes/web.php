@@ -2,7 +2,6 @@
 //Rutas de prueba para el manejo de los webservices
 Route::get('ws', 'WebServiceController@index');
 
-Route::get('/ws/{id}', 'WebServiceController@show');
 // Rutas que se usan para la Authentificación de usuarios
 Route::get('/', 'Auth\LoginController@showLogin')->name('inicio');
 Route::post('login', 'Auth\LoginController@login')->name('login');

@@ -3,16 +3,18 @@
 namespace gestion\Http\Controllers;
 
 use Illuminate\Http\Request;
+use gestion\WS\SII;
 
 class AlumnoController extends Controller
 {
 
-    public function __construct(){
+    public function __construct(SII $SII){
         //Primero, si no tiene sesión arroja la excepción y lo manda al login
         $this->middleware('auth');
         $this->middleware('alu');
-        //despues debemos validar solo admins para el acceso a este controlador
+        $this->SIIws = $SII;
     }
+
     public function index(){
     	return view('alumno.inicio');
     }

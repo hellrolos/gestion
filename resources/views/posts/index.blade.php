@@ -8,15 +8,14 @@
 <body>
 	<div class="container">
 		<h1>Publicaciones</h1>
-		@foreach($posts as $post)
 			<div class="panel panel-default">
+				<div class="panel-header">
+					<h1>{{ $post['usuario'] }}</h1>
+				</div>
 				<div class="panel-body">
-					<a href="ws/{{ $post->id }}">
-					{{ $post->title }}
-					</a>
+					{{ $post['jefatura'] }}
 				</div>
 			</div>
-		@endforeach
 	</div>
 </body>
 </html>
