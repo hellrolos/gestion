@@ -30,7 +30,6 @@ class CreateGrupoTable extends Migration
             $table->string('grupo', 5)->nullable();
             $table->boolean('aprobado')->nullable();
             $table->integer('capacidad')->nullable();
-
             $table->index(["periodo_id"], 'fk_grupo_periodo1_idx');
 
             $table->index(["personal_id"], 'fk_grupo_personal1_idx');
@@ -51,7 +50,7 @@ class CreateGrupoTable extends Migration
                 ->onUpdate('cascade');
 
             $table->foreign('plan_id', 'fk_grupo_asignatura_reticula1_idx')
-                ->references('id')->on('plan')
+                ->references('id')->on('plans')
                 ->onDelete('no action')
                 ->onUpdate('cascade');
         });

@@ -16,7 +16,8 @@ class AdminController extends Controller
         $this->SIIws = $SII;
 	}
     public function index(){
-    	return view('admin.inicio');
+        $dato = "Maestros";
+    	return view('admin.inicio', compact('dato'));
     }
 
     public function migraciones(){

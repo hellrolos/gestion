@@ -17,6 +17,12 @@
 	<link href={{ asset('template/css/default/theme/default.css') }} rel="stylesheet" id="theme" />
 	<link rel="stylesheet" href={{ asset('css/toastr.min.css')}}>
 	<!-- ================== END BASE CSS STYLE ================== -->
+	<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
+    <link href={{ asset('template/plugins/jquery-jvectormap/jquery-jvectormap.css') }} rel="stylesheet" />
+    <link href={{ asset('template/plugins/bootstrap-calendar/css/bootstrap_calendar.css') }} rel="stylesheet" />
+    <link href={{ asset('template/plugins/gritter/css/jquery.gritter.css') }} rel="stylesheet" />
+    <link href={{ asset('template/plugins/nvd3/build/nv.d3.css') }} rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src={{ asset('template/plugins/pace/pace.min.js') }}></script>
 	<!-- ================== END BASE JS ================== -->
@@ -70,9 +76,16 @@
 	<script src={{ asset('template/js/apps.min.js') }}></script>
 	 <script src={{ asset('js/toastr.min.js')}}></script>
 	<!-- ================== END BASE JS ================== -->
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js"></script>
+    <script src={{ asset('template/plugins/nvd3/build/nv.d3.js') }}></script>
+	<script src={{ asset('template/plugins/jquery-jvectormap/jquery-jvectormap.min.js') }}></script>
+	<script src={{ asset('template/js/demo/dashboard-v2.js') }}></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
 	<script>
 		$(document).ready(function() {
 			App.init();
+			@yield('ScriptElement')
 		});
 	</script>
 	@include('admin.segmentos.session-messages')
