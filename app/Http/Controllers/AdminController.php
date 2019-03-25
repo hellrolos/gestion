@@ -5,22 +5,26 @@ namespace gestion\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use gestion\WS\SII;
+use gestion\Consultas\administrador;
 
 class AdminController extends Controller
 {
     protected $SIIws;
-	public function __construct(SII $SII){
+    protected $adminConsultas;
+	public function __construct(SII $SII, administrador $ADMIN){
         //Primero, si no tiene sesión arroja la excepción y lo manda al login
 		$this->middleware('auth');
         $this->middleware('adm');
         $this->SIIws = $SII;
+        $this->adminConsultas = $ADMIN;
 	}
     public function index(){
-        $dato = "Maestros";
-    	return view('admin.inicio', compact('dato'));
+        $estatusMigraciones = $this->adminConsultas->totalesMig();
+    	return view('admin.inicio', compact('estatusMigraciones'));
     }
 
     public function migraciones(){
+        // Solicitar el numero de registros para crear una tabla con esa información
     	return view('admin.migraciones');
     }
 

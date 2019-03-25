@@ -4,7 +4,8 @@ Version: 4.0.0
 Author: Sean Ngu
 Website: http://www.seantheme.com/color-admin-v4.0/admin/
 */
-var title = '{{ $dato }}';
+var auxTitle = document.getElementById("dom-target");
+var title = auxTitle.textContent;
 var getMonthName = function(number) {
     var month = [];
     month[0] = "JAN";
@@ -48,7 +49,7 @@ var handleVisitorsAreaChart = function() {
 	};
 
 	var visitorAreaChartData = [{
-		'key' : 'Unique Visitors',
+		'key' : 'Alumnos',
 		'color' : COLOR_AQUA,
 		'values' : [
 			[handleGetDate(77), 13], [handleGetDate(76), 13], [handleGetDate(75), 6 ],
@@ -73,7 +74,7 @@ var handleVisitorsAreaChart = function() {
 			[handleGetDate(1) , 7 ], [handleGetDate(0) , 7 ]
 		]
 	}, {
-		'key' : 'Page Views',
+		'key' : 'Maestros',
 		'color' : COLOR_BLUE,
 		'values' : [
 			[handleGetDate(77), 14], [handleGetDate(76), 13], [handleGetDate(75), 15],

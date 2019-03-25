@@ -2,6 +2,8 @@
 
 namespace gestion\WS;
 use GuzzleHttp\Client;
+use GuzzleHttp\Ring\Exception\ConnectException;
+use GuzzleHttp\Exception\ClientException;
 
 //Clase creada para interactuar con Guzzle, el plugin para consumir WebServices
 class SII{
@@ -13,12 +15,67 @@ class SII{
 	}
 	//Función para consumir el webservices http://127.0.0.1:8080/wsgestioncurso/rest/docentes/#RFC
 	public function Docente($rfc, $pass){
-		$response = $this->client->request('GET', "docentes/{$rfc}", ['json' => ['pass' => "$pass"]]);
+		try{
+			$response = $this->client->request('GET', "docentes/{$rfc}", ['json' => ['pass' => "$pass"]]);
+		}
+		catch(ConnectException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+		}
 		return $response;
 	}
 	//Función para consumir el webservices http://127.0.0.1:8080/wsgestioncurso/rest/alumnos/#numeroControl
 	public function Alumno($noControl, $nip){
-		$response = $this->client->request('GET', "alumnos/{$noControl}", ['json' => ['nip' => "$nip"]]);
+		try{
+			$response = $this->client->request('GET', "alumnos/{$noControl}", ['json' => ['nip' => "$nip"]]);
+		}
+		catch(\GuzzleHttp\Exception\ClientException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+    		$response = null;
+		}
+		return $response;
+	}
+
+	public function Periodos(){
+		try{
+			$response = $this->client->request('GET', "periodos");
+		}
+		catch(ConnectException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+		}
+		return $response;
+	}
+
+	public function Departamentos(){
+		try{
+			$response = $this->client->request('GET', "departamentos");
+		}
+		catch(ConnectException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+		}
 		return $response;
 	}
 

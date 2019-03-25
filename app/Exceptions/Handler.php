@@ -6,6 +6,8 @@ use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use GuzzleHttp\Ring\Exception\ConnectException;
+use GuzzleHttp\Exception\ClientException;
 
 class Handler extends ExceptionHandler
 {
@@ -54,6 +56,9 @@ class Handler extends ExceptionHandler
         }
         if($exception instanceof MethodNotAllowedHttpException){
             return back()->with('error', 'Metodo de acceso no permitido');
+        }
+        if($exception->getCode() == 0){
+            return response()->view('errors.default');
         }
         return parent::render($request, $exception);
     }

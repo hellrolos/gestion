@@ -12,9 +12,6 @@ class Period extends Model
 	public $incrementing = false;
     public $timestamps = false;
 
-    protected $dates = [
-		'start_date', 'final_date'
-	];
 
 	protected $fillable = [
         'id', 'name', 'short_name', 'start_date', 'final_date'

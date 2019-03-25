@@ -161,7 +161,7 @@ class LoginController extends Controller
 
     public function registerAlumno($User, $Pass){
         $AlumnoResponse = $this->SIIws->Alumno($User, $Pass);
-        if($AlumnoResponse->getStatusCode() == 200) {
+        if($AlumnoResponse->getStatusCode() == 200 and $AlumnoResponse != null) {
             $Alumno = json_decode($AlumnoResponse->getBody()->getContents(), true);
             $dbAlumno = User::where("username", "=", $User)->first();
             if($dbAlumno != null) {
