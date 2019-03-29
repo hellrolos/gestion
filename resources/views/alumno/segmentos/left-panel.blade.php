@@ -33,7 +33,6 @@
                 <li>
                     <a href="{{ route('logout') }}"><i class="menu-icon fa fa-paper-plane"></i>Cerrar sesión </a>
                 </li>
-
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
