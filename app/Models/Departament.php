@@ -9,11 +9,9 @@ class Departament extends Model
 {
 	use Notifiable;
 
-	public $timestamps = false;
-	public $incrementing = false;
-
 	protected $casts = [
-		'belongs' => 'int'
+		'belongs' => 'int',
+		'active' => 'bool'
 	];
 
 	protected $fillable = [

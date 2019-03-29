@@ -10,10 +10,10 @@ class Activity extends Model
 
 	use Notifiable;
 
-    public $timestamps = false;
 
     protected $casts = [
 		'campetency_id' => 'int',
+        'active' => 'bool',
 		'group_id' => 'int'
 	];
 

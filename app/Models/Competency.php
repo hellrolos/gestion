@@ -9,7 +9,9 @@ class Competency extends Model
 {
 	use Notifiable;
 
-    public $timestamps = false;
+	protected $casts = [
+    	'active' => 'bool'
+	];
 
     protected $fillable = [
 		'subject_id', 'description', 'type'

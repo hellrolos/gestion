@@ -9,10 +9,9 @@ class Topic extends Model
 {
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $casts = [
-		'number' => 'int'
+		'number' => 'int',
+		'active' => 'bool'
 	];
 
 	protected $fillable = [

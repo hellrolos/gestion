@@ -9,11 +9,10 @@ class Schedule extends Model
 {
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $casts = [
 		'group_id' => 'int',
-		'runaway' => 'bool'
+		'runaway' => 'bool',
+        'active' => 'bool'
 	];
 
 	protected $fillable = [

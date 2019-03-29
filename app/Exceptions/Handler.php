@@ -58,7 +58,11 @@ class Handler extends ExceptionHandler
             return back()->with('error', 'Metodo de acceso no permitido');
         }
         if($exception->getCode() == 0){
-            return response()->view('errors.default');
+            if($exception instanceof NotFoundHttpException)
+            {
+                return response()->view('errors.404');
+            }
+            return response()->view('errors.503');
         }
         return parent::render($request, $exception);
     }

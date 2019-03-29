@@ -12,10 +12,10 @@ class Employee extends Model
 	protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
-    public $timestamps = false;
 
     protected $casts = [
-		'departament_id' => 'int'
+		'departament_id' => 'int',
+        'active' => 'bool'
 	];
 
 	protected $fillable = [

@@ -10,10 +10,10 @@ class Student extends Model
 	use Notifiable;
 
     public $incrementing = false;
-    public $timestamps = false;
 
     protected $casts = [
-		'career_id' => 'int'
+		'career_id' => 'int',
+		'active' => 'bool'
 	];
 
 	protected $dates = [

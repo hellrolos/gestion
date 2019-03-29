@@ -10,10 +10,9 @@ class Subtopic extends Model
 
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $casts = [
-		'topic_id' => 'int'
+		'topic_id' => 'int',
+        'active' => 'bool'
 	];
 
 	protected $fillable = [

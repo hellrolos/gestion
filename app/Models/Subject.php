@@ -9,13 +9,16 @@ class Subject extends Model
 {
 	use Notifiable;
 
+	protected $casts = [
+		'active' => 'bool'
+	];
+
 	protected $fillable = [
         'id', 'name', 'level'
     ];
     protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
-    public $timestamps = false;
 
     public function competencies()
 	{

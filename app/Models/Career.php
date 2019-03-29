@@ -10,9 +10,9 @@ class Career extends Model
 	use Notifiable;
 
     public $incrementing = false;
-    public $timestamps = false;
 
     protected $casts = [
+    	'active' => 'bool',
 		'departament_id' => 'int'
 	];
 

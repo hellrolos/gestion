@@ -10,11 +10,10 @@ class Evidence extends Model
 
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $casts = [
 		'competency_id' => 'int',
-		'group_id' => 'int'
+		'group_id' => 'int',
+        'active' => 'bool'
 	];
 
 	protected $dates = [

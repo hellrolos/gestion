@@ -9,13 +9,12 @@ class Criterion extends Model
 {
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $casts = [
 		'indicator_id' => 'int',
 		'competency_id' => 'int',
 		'group_id' => 'int',
-		'percent' => 'int'
+		'percent' => 'int',
+        'active' => 'bool'
 	];
 
 	protected $fillable = [

@@ -9,13 +9,12 @@ class Partial extends Model
 {
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $casts = [
 		'schedule_id' => 'int',
 		'criterion_id' => 'int',
 		'score' => 'int',
-		'oportunity' => 'int'
+		'oportunity' => 'int',
+        'active' => 'bool'
 	];
 
 	protected $fillable = [

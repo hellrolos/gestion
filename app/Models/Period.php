@@ -10,8 +10,7 @@ class Period extends Model
 	use Notifiable;
 
 	public $incrementing = false;
-    public $timestamps = false;
-
+	public $timestamps = false;
 
 	protected $fillable = [
         'id', 'name', 'short_name', 'start_date', 'final_date'

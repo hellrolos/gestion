@@ -10,13 +10,12 @@ class Group extends Model
 
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $casts = [
 		'period_id' => 'int',
 		'plan_id' => 'int',
 		'approved' => 'bool',
-		'capacity' => 'int'
+		'capacity' => 'int',
+		'active' => 'bool'
 	];
 
 	protected $fillable = [

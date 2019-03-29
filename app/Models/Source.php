@@ -9,11 +9,10 @@ class Source extends Model
 {
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $casts = [
 		'group_id' => 'int',
-		'date' => 'int'
+		'date' => 'int',
+        'active' => 'bool'
 	];
 
 	protected $fillable = [

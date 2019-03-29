@@ -10,14 +10,14 @@ class Reticle extends Model
 
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $dates = [
 		'start_date', 'final_date'
 	];
 
 	protected $casts = [
-		'career_id' => 'int', 'reticle' => 'int'
+		'career_id' => 'int',
+		'reticle' => 'int',
+		'active' => 'bool'
 	];
 
 	protected $fillable = [

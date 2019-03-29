@@ -9,13 +9,12 @@ class Plan extends Model
 {
 	use Notifiable;
 
-    public $timestamps = false;
-
     protected $casts = [
 		'reticle_id' => 'int',
 		'credits' => 'int',
 		'practical_hours' => 'int',
-		'theoretical_hours' => 'int'
+		'theoretical_hours' => 'int',
+		'active' => 'bool'
 	];
 
 	protected $fillable = [
