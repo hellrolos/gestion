@@ -3,25 +3,25 @@
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li>
+                <li class = "{{ request()->Is('alumno') ? 'active' : '' }}">
                     <a href="{{ route('alumno') }}"><i class="menu-icon fa fa-laptop"></i>Inicio </a>
                 </li>
                 <!-- Agregar codigo para saber cual esta activo -->
-                <li class="menu-item-has-children  active dropdown">
+                <li class="menu-item-has-children dropdown {{ request()->Is('alumno/asignatura') ? 'active' : '' }}{{ request()->Is('alumno/asignatura/*') ? 'active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Asignaturas</a>
                     <ul class="sub-menu children dropdown-menu">
                     <li><i class="fa fa-id-badge"></i><a href="{{ route('alumnoasignatura') }}">Semestre Actual</a></li>
                     <li><i class="fa fa-th"></i><a href="{{ route('alumnohistorico') }}">Histórico</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children  active dropdown">
+                <li class="menu-item-has-children dropdown {{ request()->Is('alumno/mensajes/*') ? 'active' : '' }}">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Mensajes</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-table"></i><a href="{{ route('alumnorecibidos') }}">Recibidos</a></li>
                         <li><i class="fa fa-table"></i><a href="{{ route('alumnoenviados') }}">Enviados</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class = "{{ request()->Is('alumno/calendario') ? 'active' : '' }}">
                     <a href="{{ route('alumnocalendario') }}"><i class="menu-icon fa fa-book"></i>Calendario </a>
                 </li>
                 @if(auth()->user()->type=='ADM')

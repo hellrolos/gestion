@@ -3,11 +3,11 @@
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li>
+                <li class = "{{ request()->Is('admin/dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}"><i class="menu-icon fa fa-laptop"></i>Inicio </a>
                 </li>
                 <!-- Agregar codigo para saber cual esta activo -->
-                <li class="menu-item-has-children  active dropdown">
+                <li class="menu-item-has-children dropdown {{ request()->Is('admin/migraciones') ? 'active' : '' }} {{ request()->is('admin/migraciones/*') ? 'active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Migraciones</a>
                     <ul class="sub-menu children dropdown-menu">
                     <li><i class="fa fa-spinner"></i><a href="{{ route('migraciones') }}">Estatus</a></li>
@@ -24,7 +24,7 @@
                     <li><i class="fa fa-sort-amount-asc"></i><a href="{{ route('cargashorarias') }}">Cargas Horarias</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children  active dropdown">
+                <li class="menu-item-has-children dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-card-o"></i>Sesiones</a>
                     <ul class="sub-menu children dropdown-menu">
                     <li><i class="fa fa-users"></i><a href="{{ route('docenteacademia') }}">Docentes</a></li>

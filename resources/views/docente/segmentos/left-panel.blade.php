@@ -3,11 +3,11 @@
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="{{ route('alumno') }}"><i class="menu-icon fa fa-laptop"></i>Inicio </a>
+                <li class="{{ request()->Is('docente') ? 'active' : '' }}">
+                    <a href="{{ route('docente') }}"><i class="menu-icon fa fa-laptop"></i>Inicio </a>
                 </li>
                 <!-- Agregar codigo para saber cual esta activo -->
-                <li class="menu-item-has-children  active dropdown">
+                <li class="menu-item-has-children dropdown {{ request()->Is('docente/asignatura') ? 'active' : '' }}{{ request()->Is('docente/asignatura/historico') ? 'active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Asignaturas</a>
                     <ul class="sub-menu children dropdown-menu">
                     <li><i class="fa fa-id-badge"></i><a href="{{ route('docenteasignatura') }}">Semestre Actual</a></li>
@@ -16,7 +16,7 @@
                 </li>
                 @if(auth()->user()->type=='JEF' or auth()->user()->type=='ADM')
 	                <!-- Menu para Jefes -->
-	                <li class="menu-item-has-children  active dropdown">
+	                <li class="menu-item-has-children dropdown {{ request()->Is('docente/academia') ? 'active' : '' }}{{ request()->Is('docente/academia/*') ? 'active' : '' }}">
 	                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-id-card-o"></i>Academia</a>
 	                    <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-id-badge"></i><a href="{{ route('docenteacademia') }}">Academia</a></li>
@@ -26,7 +26,7 @@
                 @endif
                 @if(auth()->user()->type=='SUB' or auth()->user()->type=='DIR' or auth()->user()->type=='ADM')
                 	<!-- Menu para Jefes -->
-	                <li class="menu-item-has-children  active dropdown">
+	                <li class="menu-item-has-children dropdown {{ request()->Is('docente/subdireccion/*') ? 'active' : '' }}">
 	                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-fort-awesome"></i>Progresos</a>
 	                    <ul class="sub-menu children dropdown-menu">
 	                        <li><i class="fa fa-spinner"></i><a href="{{ route('docenteestatus') }}">Estatus Plataforma</a></li>
@@ -34,14 +34,14 @@
 	                    </ul>
 	                </li>
                 @endif
-                <li class="menu-item-has-children  active dropdown">
+                <li class="menu-item-has-children dropdown {{ request()->Is('docente/mensajes/*') ? 'active' : '' }}">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Mensajes</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-table"></i><a href="{{ route('docenterecibidos') }}">Recibidos</a></li>
                         <li><i class="fa fa-table"></i><a href="{{ route('docenteenviados') }}">Enviados</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class = "{{ request()->Is('docente/calendario') ? 'active' : '' }}">
                     <a href="{{ route('docentecalendario') }}"><i class="menu-icon fa fa-book"></i>Calendario </a>
                 </li>
                 @if(auth()->user()->type=='ADM')
