@@ -79,6 +79,86 @@ class SII{
 		return $response;
 	}
 
+	public function Carreras(){
+		try{
+			$response = $this->client->request('GET', "carreras");
+		}
+		catch(ConnectException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+		}
+		return $response;
+	}
+
+	public function Personal(){
+		try{
+			$response = $this->client->request('GET', "personal");
+		}
+		catch(ConnectException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+		}
+		return $response;
+	}
+
+	public function Materias(){
+		try{
+			$response = $this->client->request('GET', "materias");
+		}
+		catch(ConnectException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+		}
+		return $response;
+	}
+
+	public function Reticulas(){
+		try{
+			$response = $this->client->request('GET', "reticulas");
+		}
+		catch(ConnectException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+		}
+		return $response;
+	}
+
+	public function Planes(){
+		try{
+			$response = $this->client->request('GET', "planes");
+		}
+		catch(ConnectException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+		}
+		return $response;
+	}
+
 }
 
 ?>

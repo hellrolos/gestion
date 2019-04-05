@@ -24,11 +24,6 @@ class Career extends Model
     	return $this->belongsTo(\App\Models\Departament::class);
     }
 
-    public function students()
-	{
-		return $this->hasMany(\App\Models\Student::class);
-	}
-
 	public function reticles()
 	{
 		return $this->hasMany(\App\Models\Reticle::class);

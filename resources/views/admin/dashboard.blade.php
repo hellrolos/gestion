@@ -32,7 +32,7 @@
 			<div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Basic Table</strong>
+                        <strong class="card-title">Listaremos funciones y numeros de la BD</strong>
                     </div>
                     <div class="card-body">
                         <table class="table">

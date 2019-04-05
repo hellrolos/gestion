@@ -10,10 +10,6 @@ class Reticle extends Model
 
 	use Notifiable;
 
-    protected $dates = [
-		'start_date', 'final_date'
-	];
-
 	protected $casts = [
 		'career_id' => 'int',
 		'reticle' => 'int',
@@ -31,5 +27,10 @@ class Reticle extends Model
     public function plans()
 	{
 		return $this->hasMany(\App\Models\Plan::class);
+	}
+
+	public function students()
+	{
+		return $this->hasMany(\App\Models\Student::class);
 	}
 }

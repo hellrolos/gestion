@@ -7,7 +7,7 @@
             <div class="col-sm-6">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Alumnos</h1>
+                        <h1>Estatus</h1>
                     </div>
                 </div>
             </div>

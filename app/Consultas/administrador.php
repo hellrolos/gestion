@@ -2,19 +2,20 @@
 
 namespace gestion\Consultas;
 use gestion\WS\SII;
-use gestion\Models\{Period, Departament, Career, Employee, Subject, Reticle, Plan, Student};
-use Carbon\Carbon;
+use gestion\Models\{Period, Departament, Career, Employee, Subject, Reticle, Plan, Student, Group};
+use gestion\Consultas\migracion;
 
 class administrador {
 
 	protected $SIIws;
+	protected $Migra;
 
-	public function __construct(SII $SII){
+	public function __construct(SII $SII, migracion $Mig){
 		$this->SIIws = $SII;
+		$this->Migra = $Mig;
     }
 
 	public function totalesMig(){
-		$dato = "Maestros";
         $periodo = $this->totalPeriodos();
         $departamento = $this->totalDepartamentos();
         $carrera = $this->totalCarreras();
@@ -32,81 +33,53 @@ class administrador {
             'reticula' => $reticula,
             'planreticular' => $planreticular,
             'alumno' => $alumno,
-            'dato' => $dato,
         ];
         return $conteo;
 	}
 
 	public function totalPeriodos(){
-		$Periodos = $this->SIIws->Periodos();
-		if($Periodos != null) {
-			$Totales = json_decode($Periodos->getBody()->getContents(), true);
-			foreach($Totales as $periodo){
-				$BP = Period::where("id", "=", $periodo['id'])->first();
-				if($BP == null){
-					$newPeriodo = new Period();
-					$newPeriodo->id= $periodo['id'];
-					$newPeriodo->name= $periodo['nombre'];
-					$newPeriodo->short_name= $periodo['nombre_corto'];
-					$newPeriodo->start_date= $periodo['fecha_inicio'];
-					$newPeriodo->final_date= $periodo['fecha_termino'];
-					$newPeriodo->save();
-				}
-				else {
-					$BP->start_date = $periodo['fecha_inicio'];
-					$BP->start_date = $periodo['fecha_termino'];
-					$BP->save();
-				}
-			}
-		}
+		$this->Migra->MisPeriodos();
 		return Period::count();
 	}
 
 	public function totalDepartamentos(){
-		$Deptos = $this->SIIws->Departamentos();
-		if($Deptos != null){
-			$Totales = json_decode($Deptos->getBody()->getContents(), true);
-			foreach($Totales as $depto){
-				$BDepto = Departament::where("id", "=", $depto['clave_area'])->first();
-				if($BDepto == null){
-					$newDepto = new Departament();
-					$newDepto->id = $depto['clave_area'];
-					$newDepto->name = $depto['descripcion_area'];
-					$newDepto->rfc_chief = $depto['rfc'];
-					$newDepto->belongs = $depto['area_depende'];
-					$newDepto->save();
-				}
-				else {
-					$BDepto->rfc_chief = $depto['rfc'];
-					$BDepto->save();
-				}
-			}
-		}
+		$this->Migra->MisDepartamentos();
 		return Departament::count();
 	}
 
 	public function totalCarreras(){
+		$this->Migra->MisCarreras();
 		return Career::count();
 	}
 
 	public function totalPersonal(){
+		$this->Migra->MisEmpleados();
 		return Employee::count();
 	}
 
 	public function totalAsignaturas(){
+		$this->Migra->MisAsignaturas();
 		return Subject::count();
 	}
 
 	public function totalReticulas(){
+		$this->Migra->MisReticulas();
 		return Reticle::count();
 	}
 
 	public function totalPlanesReticulares(){
+		$this->Migra->MisPlanes();
 		return Plan::count();
 	}
 
 	public function totalAlumnos(){
+		$this->Migra->MisAlumnos();
 		return Student::count();
+	}
+
+	public function totalGrupos(){
+		$this->Migra->MisGrupos();
+		return Group::count();
 	}
 }
 

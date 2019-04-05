@@ -24,8 +24,8 @@ class Student extends Model
         'id', 'career_id', 'lastname', 'mother_lastname', 'names', 'status','sex', 'birthdate'
     ];
 
-    public function career(){
-    	return $this->belongsTo(\App\Models\Career::class);
+    public function reticle(){
+    	return $this->belongsTo(\App\Models\Reticle::class);
     }
 
     public function schedules()
