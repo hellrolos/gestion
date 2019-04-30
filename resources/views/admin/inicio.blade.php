@@ -26,16 +26,29 @@
 </div>
 <!-- end breadcrumb -->
 <div class="content">
-    <!-- Animated -->
+    <div class="col-md-16">
+        <aside class="profile-nav alt">
+            <section class="card">
+                <div class="card-header user-header alt" style="background-color:#0B5C87;">
+                    <div class="media">
+                            <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src={{ asset('base/images/admin.jpg')}}>
+                        <div class="media-body">
+                            <h2 class="text-light display-6">{{ Auth::user()->name }}</h2>
+                            <p style="color:#f8f9fa!important;">{{ Auth::user()->description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
     <div class="animated fadeIn">
-        <!-- Widgets  -->
         <div class="row">
             <div class="col-lg-3 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-1">
-                                <i class="pe-7s-cash"></i>
+                                <i class="ti-time"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
@@ -52,7 +65,7 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-2">
-                                <i class="pe-7s-cart"></i>
+                                <i class="ti-direction-alt"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
@@ -69,7 +82,7 @@
                     <div class="card-body">
                         <div class="stat-widget-five">
                             <div class="stat-icon dib flat-color-3">
-                                <i class="pe-7s-browser"></i>
+                                <i class="ti-bookmark-alt"></i>
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
@@ -99,218 +112,162 @@
                 </div>
             </div>
         </div>
-        <!-- /Widgets -->
         <div class="row">
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-1">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
                     <div class="card-body">
-                        <div class="card-left pt-1 float-left">
-                            <h3 class="mb-0 fw-r">
-                                <span class="currency float-left mr-1"></span>
-                                <span class="count">{{ $estatusMigraciones['asignatura'] }}</span>
-                            </h3>
-                            <p class="text-light mt-1 m-0">Asignaturas</p>
-                        </div><!-- /.card-left -->
-
-                        <div class="card-right float-right text-right">
-                            <i class="icon fade-5 icon-lg pe-7s-cart"></i>
-                        </div><!-- /.card-right -->
-
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-5">
+                                <i class="fa fa-book"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text">
+                                        <span class="count">{{ $estatusMigraciones['asignatura'] }}</span>
+                                    </div>
+                                    <div class="stat-heading">Asignaturas</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
-            <!--/.col-->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-6">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
                     <div class="card-body">
-                        <div class="card-left pt-1 float-left">
-                            <h3 class="mb-0 fw-r">
-                                <span class="count float-left">{{ $estatusMigraciones['reticula'] }}</span>
-                                <span>%</span>
-                            </h3>
-                            <p class="text-light mt-1 m-0">Reticulas</p>
-                        </div><!-- /.card-left -->
-
-                        <div class="card-right float-right text-right">
-                            <i class="icon fade-5 icon-lg pe-7s-cart"></i>
-                        </div><!-- /.card-right -->
-
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-6">
+                                <i class="ti-ruler-pencil"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text">
+                                        <span class="count">{{ $estatusMigraciones['reticula'] }}</span>
+                                    </div>
+                                    <div class="stat-heading">Reticulas</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
-            <!--/.col-->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-3">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
                     <div class="card-body">
-                        <div class="card-left pt-1 float-left">
-                            <h3 class="mb-0 fw-r">
-                                <span class="count">{{ $estatusMigraciones['planreticular'] }}</span>
-                            </h3>
-                            <p class="text-light mt-1 m-0">Planes de Estudio</p>
-                        </div><!-- /.card-left -->
-
-                        <div class="card-right float-right text-right">
-                            <i class="icon fade-5 icon-lg pe-7s-server"></i>
-                        </div><!-- /.card-right -->
-
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-1">
+                                <i class="ti-view-list-alt"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text">
+                                        <span class="count">{{ $estatusMigraciones['planreticular'] }}</span>
+                                    </div>
+                                    <div class="stat-heading">Planes de Estudio</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
-            <!--/.col-->
-            <div class="col-sm-6 col-lg-3">
-                <div class="card text-white bg-flat-color-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
                     <div class="card-body">
-                        <div class="card-left pt-1 float-left">
-                            <h3 class="mb-0 fw-r">
-                                <span class="count">{{ $estatusMigraciones['alumno'] }}</span>
-                            </h3>
-                            <p class="text-light mt-1 m-0">Alumnos</p>
-                        </div><!-- /.card-left -->
-
-                        <div class="card-right float-right text-right">
-                            <i class="icon fade-5 icon-lg pe-7s-users"></i>
-                        </div><!-- /.card-right -->
-
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-2">
+                                <i class="fa fa-group"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text">
+                                        <span class="count">{{ $estatusMigraciones['alumno'] }}</span>
+                                    </div>
+                                    <div class="stat-heading">Alumnos</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
-            <!--/.col-->
         </div>
         <div class="row">
-        	<div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-four">
-                                    <div class="stat-icon dib">
-                                        <i class="ti-server text-muted"></i>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-3">
+                                <i class="ti-layout-list-thumb"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text">
+                                        <span class="count">2323</span>
                                     </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-heading">Database</div>
-                                            <div class="stat-text">Total: 765</div>
-                                        </div>
-                                    </div>
+                                    <div class="stat-heading">Grupos</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-four">
-                                    <div class="stat-icon dib">
-                                        <i class="ti-user text-muted"></i>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-4">
+                                <i class="ti-list-ol"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text">
+                                        <span class="count">343434</span>
                                     </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-heading">Users</div>
-                                            <div class="stat-text">Total: 24720</div>
-                                        </div>
-                                    </div>
+                                    <div class="stat-heading">Indicadores</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-four">
-                                    <div class="stat-icon dib">
-                                        <i class="ti-stats-up text-muted"></i>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-5">
+                                <i class="ti-user"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text">
+                                        <span class="count">343434</span>
                                     </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-heading">Daily Sales</div>
-                                            <div class="stat-text">Total: $76,58,714</div>
-                                        </div>
-                                    </div>
+                                    <div class="stat-heading">Usuarios</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-four">
-                                    <div class="stat-icon dib">
-                                        <i class="ti-pulse text-muted"></i>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-6">
+                                <i class="ti-mouse-alt"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text">
+                                        <span class="count">34343</span>
                                     </div>
-                                    <div class="stat-content">
-                                        <div class="text-left dib">
-                                            <div class="stat-heading">Bandwidth</div>
-                                            <div class="stat-text">Total: 4TB</div>
-                                        </div>
-                                    </div>
+                                    <div class="stat-heading">Conectados Hoy</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-        </div>
-        <div class="row">
-        	<div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Total Profit</div>
-                                        <div class="stat-digit">1,012</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">New Customer</div>
-                                        <div class="stat-digit">961</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Active Projects</div>
-                                        <div class="stat-digit">770</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="stat-widget-one">
-                                    <div class="stat-icon dib"><i class="ti-link text-danger border-danger"></i></div>
-                                    <div class="stat-content dib">
-                                        <div class="stat-text">Referrals</div>
-                                        <div class="stat-digit">2,781</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 @endsection

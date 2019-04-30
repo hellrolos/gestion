@@ -16,10 +16,6 @@ class Student extends Model
 		'active' => 'bool'
 	];
 
-	protected $dates = [
-		'birthdate'
-	];
-
 	protected $fillable = [
         'id', 'career_id', 'lastname', 'mother_lastname', 'names', 'status','sex', 'birthdate'
     ];

@@ -159,6 +159,22 @@ class SII{
 		return $response;
 	}
 
+	public function Alumnos(){
+		try{
+			$response = $this->client->request('GET', "alumnos");
+		}
+		catch(ConnectException $ex){
+			switch ( $ex->getMessage() ) {
+        		case '7': // to be verified
+            // handle your exception in the way you want,
+            // maybe with a graceful fallback
+        		$response = null;
+            	break;
+    		}
+		}
+		return $response;
+	}
+
 }
 
 ?>

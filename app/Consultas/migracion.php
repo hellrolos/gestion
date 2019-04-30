@@ -4,12 +4,15 @@ namespace gestion\Consultas;
 
 use gestion\WS\SII;
 use gestion\Models\{Period, Departament, Career, Employee, Subject, Reticle, Plan, Student};
+use gestion\Consultas\busquedas;
 
 class migracion {
 	protected $SIIws;
+	protected $Consul;
 
-	public function __construct(SII $SII) {
+	public function __construct(SII $SII, busquedas $Busq) {
 		$this->SIIws = $SII;
+		$this->Consul = $Busq;
     }
 
     public function MisPeriodos(){
@@ -165,11 +168,7 @@ class migracion {
 		if($Planes != null){
 			$Todos = json_decode($Planes->getBody()->getContents(), true);
 			foreach($Todos as $plan){
-				$Carrera = Career::where("acronym", "=", $plan['carrera'])->first();
-				$Reticula = Reticle::where([
-					["career_id", "=", $Carrera->id],
-					["reticle", "=", $plan['reticula']]
-				])->first();
+				$Reticula = $this->Consul->getReticula($plan['carrera'], $plan['reticula']);
 				if($Reticula != null){
 					$ExisPlan = Plan::where([
 						["subject_id", "=", $plan['materia']],
@@ -196,6 +195,30 @@ class migracion {
     }
 
     public function MisAlumnos(){
+    	$Alumnos = $this->SIIws->Alumnos();
+    	if($Alumnos != null){
+    		$Todos = json_decode($Alumnos->getBody()->getContents(), true);
+    		foreach($Todos as $alumno){
+    			$DBAlu = Student::where("id", "=", $alumno['control'])->first();
+    			if($DBAlu == null){
+    				$Ret = $this->Consul->getReticula($alumno['carrera'], $alumno['reticula']);
+    				$newAlu = new Student();
+    				$newAlu->id = $alumno['control'];
+    				$newAlu->reticle_id = $Ret->id;
+    				$newAlu->lastname = $alumno['ap'];
+    				$newAlu->mother_lastname = $alumno['am'];
+    				$newAlu->names = $alumno['nombres'];
+    				$newAlu->status = $alumno['estatus'];
+    				$newAlu->sex = $alumno['sexo'];
+    				$newAlu->birthdate = $alumno['fecha'];
+    				$newAlu->save();
+    			}
+    			else{
+    				$DBAlu->status = $alumno['estatus'];
+    				$DBAlu->save();
+    			}
+    		}
+    	}
     }
 
     public function MisGrupos(){

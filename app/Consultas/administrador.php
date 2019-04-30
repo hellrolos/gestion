@@ -38,47 +38,47 @@ class administrador {
 	}
 
 	public function totalPeriodos(){
-		$this->Migra->MisPeriodos();
+		// $this->Migra->MisPeriodos();
 		return Period::count();
 	}
 
 	public function totalDepartamentos(){
-		$this->Migra->MisDepartamentos();
+		// $this->Migra->MisDepartamentos();
 		return Departament::count();
 	}
 
 	public function totalCarreras(){
-		$this->Migra->MisCarreras();
+		// $this->Migra->MisCarreras();
 		return Career::count();
 	}
 
 	public function totalPersonal(){
-		$this->Migra->MisEmpleados();
+		// $this->Migra->MisEmpleados();
 		return Employee::count();
 	}
 
 	public function totalAsignaturas(){
-		$this->Migra->MisAsignaturas();
+		// $this->Migra->MisAsignaturas();
 		return Subject::count();
 	}
 
 	public function totalReticulas(){
-		$this->Migra->MisReticulas();
+		//$this->Migra->MisReticulas();
 		return Reticle::count();
 	}
 
 	public function totalPlanesReticulares(){
-		$this->Migra->MisPlanes();
+		//$this->Migra->MisPlanes();
 		return Plan::count();
 	}
 
 	public function totalAlumnos(){
-		$this->Migra->MisAlumnos();
+		//$this->Migra->MisAlumnos();
 		return Student::count();
 	}
 
 	public function totalGrupos(){
-		$this->Migra->MisGrupos();
+		//$this->Migra->MisGrupos();
 		return Group::count();
 	}
 }
