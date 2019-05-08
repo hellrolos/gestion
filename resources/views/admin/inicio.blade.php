@@ -31,7 +31,7 @@
             <section class="card">
                 <div class="card-header user-header alt" style="background-color:#0B5C87;">
                     <div class="media">
-                            <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src={{ asset('base/images/admin.jpg')}}>
+                            <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src={{ asset('base/images/admin1.jpg')}}>
                         <div class="media-body">
                             <h2 class="text-light display-6">{{ Auth::user()->name }}</h2>
                             <p style="color:#f8f9fa!important;">{{ Auth::user()->description }}</p>
