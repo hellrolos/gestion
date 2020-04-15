@@ -7,8 +7,6 @@ use Illuminate\Notifications\Notifiable;
 
 class Period extends Model
 {
-	use Notifiable;
-
 	public $incrementing = false;
 	public $timestamps = false;
 

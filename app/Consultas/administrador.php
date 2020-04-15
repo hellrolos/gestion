@@ -38,7 +38,7 @@ class administrador {
 	}
 
 	public function totalPeriodos(){
-		// $this->Migra->MisPeriodos();
+		//$this->Migra->MisPeriodos();
 		return Period::count();
 	}
 

@@ -21,6 +21,7 @@ class migracion {
 			$Totales = json_decode($Periodos->getBody()->getContents(), true);
 			foreach($Totales as $periodo){
 				$BP = Period::where("id", "=", $periodo['id'])->first();
+				//dd($BP);
 				if($BP == null){
 					$newPeriodo = new Period();
 					$newPeriodo->id= $periodo['id'];

@@ -4,18 +4,18 @@
     <title>Acceso | Gestión de Curso</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" type="image/png" href={{ asset('base/images/escudo_itt.png')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/bootstrap.min.css')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/font-awesome.min.css')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/icon-font.min.css')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/animate.css')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/hamburgers.min.css')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/animsition.min.css')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/select2.min.css')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/daterangepicker.css')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/util.css')}}/>
-    <link rel="stylesheet" type="text/css" href={{ asset('prueba/css/main.css')}}/>
-    <link rel="stylesheet" href={{ asset('css/toastr.min.css')}}/>
+    <link rel="icon" href={{ asset('base/images/escudo_itt.png')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/bootstrap.min.css')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/font-awesome.min.css')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/icon-font.min.css')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/animate.css')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/hamburgers.min.css')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/animsition.min.css')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/select2.min.css')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/daterangepicker.css')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/util.css')}} />
+    <link rel="stylesheet" href={{ asset('prueba/css/main.css')}} />
+    <link rel="stylesheet" href={{ asset('css/toastr.min.css')}} />
 </head>
 <body>
     <div class="limiter">

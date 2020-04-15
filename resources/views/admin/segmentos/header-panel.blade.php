@@ -2,8 +2,7 @@
 <header id="header" class="header">
 <div class="top-left">
     <div class="navbar-header">
-        <a class="navbar-brand" href="./"><img src={{ asset('base/images/logoTecNM.png') }} alt="Logo"></a>
-        {{-- <a class="navbar-brand hidden" href="./"><img src={{ asset('base/images/Logo1.png') }} alt="Logo"></a> --}}
+        <a class="navbar-brand" href="./"><img alt="Logo" src={{ asset('base/images/logoTecNM.png') }}></a>
         <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
     </div>
 </div>
